@@ -7,7 +7,7 @@ var config = {
     default: 'arcade',
     arcade: {
       debug: false,
-      gravity: { y: 0 }
+      //gravity: { y: 0 }
     }
   },
   scene: {
@@ -76,8 +76,7 @@ function update() {
     if (this.cursors.left.isDown) {
       direction = "left";
       this.ship.setVelocityX(-100);
-      this.ship.anims.play('left', true);
-      
+      this.ship.anims.play('left', true);   
       this.physics.add.collider(this.ship, this.otherPlayers);
 
     } else if (this.cursors.right.isDown) {
@@ -105,6 +104,7 @@ function update() {
       this.ship.anims.play('left', true);
 
     }//les Attaques
+      
     if (direction == "left" && this.cursors.space.isDown) {
       
       direction = "left";
@@ -412,12 +412,12 @@ function create() {
       }
     });
   });
-  this.blueScoreText = this.add.text(16, 16, '', { fontSize: '32px', fill: '#0000FF' });
-  this.redScoreText = this.add.text(584, 16, '', { fontSize: '32px', fill: '#FF0000' });
+  this.blueScoreText = this.add.text(400, 50, '', { fontSize: '50px', fill: '#006699', fontFamily: 'Arial Black' });
+  this.redScoreText = this.add.text(850, 50, '', { fontSize: '50px', fill: '#ff3333', fontFamily: 'Arial Black' });
     
   this.socket.on('scoreUpdate', function (scores) {
-    self.blueScoreText.setText('Team Blue: ' + scores.blue);
-    self.redScoreText.setText('Team Red: ' + scores.red);
+    self.blueScoreText.setText('Blue: ' + scores.blue + ' hp');
+    self.redScoreText.setText('Red: ' + scores.red + ' hp');
   });
 
 
