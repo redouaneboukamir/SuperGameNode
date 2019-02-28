@@ -83,25 +83,30 @@ function update() {
       direction = "right";
       this.ship.setVelocityX(100);
       this.ship.anims.play('right', true);
+      this.physics.add.collider(this.ship, this.otherPlayers,null,this);
 
     } else if (direction == "right" && this.cursors.down.isDown) {
       direction = "right";
       this.ship.setVelocityY(100);
       this.ship.anims.play('right', true);
+      this.physics.add.collider(this.ship, this.otherPlayers,null,this);
       
     } else if (direction == "right" && this.cursors.up.isDown) {
       direction = "right";
       this.ship.setVelocityY(-100);
       this.ship.anims.play('right', true);
+      this.physics.add.collider(this.ship, this.otherPlayers,null,this);
     } else if (direction == "left" && this.cursors.up.isDown) {
       direction = "left";
       this.ship.setVelocityY(-100);
       this.ship.anims.play('left', true);
+      this.physics.add.collider(this.ship, this.otherPlayers,null,this);
 
     } else if (direction == "left" && this.cursors.down.isDown) {
       direction = "left";
       this.ship.setVelocityY(100);
       this.ship.anims.play('left', true);
+      this.physics.add.collider(this.ship, this.otherPlayers,null,this);
 
     }//les Attaques
       
